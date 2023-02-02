@@ -21,12 +21,10 @@ class MovieAdapter(val context: Context, private val itemClickListener: ItemClic
 
     fun setMovies(movies: List<Movie>) {
         this.movieList = movies.toMutableList()
-
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
         val inflater = LayoutInflater.from(parent.context)
             .inflate(R.layout.adapter_movie, parent, false)
         return ViewHolder(inflater)
@@ -39,7 +37,6 @@ class MovieAdapter(val context: Context, private val itemClickListener: ItemClic
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         movieList[position].let {
             if (ValidationUtil.validateMovie(it)) {
                 holder.name.text = it.name
