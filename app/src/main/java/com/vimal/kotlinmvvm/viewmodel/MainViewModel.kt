@@ -24,9 +24,9 @@ class MainViewModel constructor(private val mainRepository: MainRepository) : Vi
     val loading = MutableLiveData<Boolean>()
 
     fun getAllMovies() {
-        Log.d("Thread Outside", Thread.currentThread().name)
+//        Log.d("Thread Outside", Thread.currentThread().name)
         viewModelScope.launch {
-            Log.d("Thread Inside", Thread.currentThread().name)
+//            Log.d("Thread Inside", Thread.currentThread().name)
             when (val response = mainRepository.getAllMovies()) {
                 is NetworkState.Success -> {
                     movieList.postValue(response.data)
